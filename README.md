@@ -17,7 +17,7 @@ WikiMatrix.LANG_1-LANG_2.tsv  contains sentences in LANG_1 and their counterpart
 
 Sentence pairs are classified by score** measuring quality of correspondance.
 
-\** Maximum margin criterion from *Haifeng Li, Tao Jiang and Keshu Zhang, "Efficient and robust feature extraction by maximum margin criterion,"  IEEE Transactions on Neural Networks (2006)
+\** Maximum margin criterion from **Haifeng Li, Tao Jiang and Keshu Zhang, "Efficient and robust feature extraction by maximum margin criterion,"  IEEE Transactions on Neural Networks (2006)**
 
 ## Extraction of suitable pairs
 
