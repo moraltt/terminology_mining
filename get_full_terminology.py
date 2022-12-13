@@ -65,6 +65,7 @@ for node in df:
 # Create Terminology df
 df_Terminology = pd.DataFrame(Data, columns = ["source_term", "target_term", "score","source_sentence","target_sentence"])
     
+    
 # Merge
 df_Full=df_Terminology.merge(df, on=['source_sentence'], how='inner')
 #Save
