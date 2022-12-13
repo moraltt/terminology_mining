@@ -127,3 +127,4 @@ def read_tmx_2(path):
     print("Corpus created in %.3f seconds with %d elements" %((time.time()-start_time),len(df)))
     return metadata, df
  
+    
