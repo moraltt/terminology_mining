@@ -187,7 +187,27 @@ def get_align(src, tgt):
 
 
 def preprocess(string):
+  # Target languages are DE-EN
   start = 0
   MATCH = re.search('[a-zA-ZÀ-ÖØ-öø-ÿ]', string)
   if MATCH is not None: start = MATCH.span()[0]
   return string[start:].strip()
+
+def extract_pairs(phrases, list_of_pairs):
+  # Returns array storing [ [En, De, score], [En, De, score]  ]
+  EN = [x[2] for x in phrases] # original EN ngrams
+  DE = [x[3] for x in phrases] # translated DE ngrams
+
+  pairs = []
+  for x in set(EN):
+    fil = [x == y for y in EN]
+    candidates = list(itertools.compress(DE, fil)) # Candidate translations
+    embeddings = embedder.encode([x]+candidates) # Embeddings
+    scores = cossim(embeddings[0].reshape(1,-1), embeddings[1:])[0] #Compute cossim between source and alignments 
+
+    pair = [x, candidates[np.argmax(scores)]]
+    if max(scores)>.6 and pair not in list_of_pairs:
+      list_of_pairs.append(pair)
+      pairs.append( pair+[str(max(scores)) ]) # Extract best
+      
+  return pairs, list_of_pairs
