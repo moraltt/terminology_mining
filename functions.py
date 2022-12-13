@@ -115,6 +115,7 @@ def phrase_extraction(srctext, trgtext, alignment):
             if fs in f_aligned or fs < 0:
                 break
         return phrases
+   
 
     # Calculate no. of tokens in source and target texts.
     srctext = srctext.split()   # e
