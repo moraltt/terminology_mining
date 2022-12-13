@@ -193,6 +193,11 @@ def preprocess(string):
   if MATCH is not None: start = MATCH.span()[0]
   return string[start:].strip()
 
+def standarize(txt):
+    txt=re.sub('\t|\n', ' ',txt)
+    txt=re.sub(' +', ' ',txt)
+    return txt.strip()
+
 def extract_pairs(phrases, list_of_pairs):
   # Returns array storing [ [En, De, score], [En, De, score]  ]
   EN = [x[2] for x in phrases] # original EN ngrams
