@@ -1,4 +1,4 @@
-# Terminology mining through semantic search applied to AbbVie Translation Memories
+# Terminology mining through semantic search applied to Translation Memories
 
 ## The goal: Model distillation
 
